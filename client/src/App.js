@@ -1,23 +1,41 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-
+import Axios from 'axios';
 function App() {
+
+  const [searchResult, setSearchResult] = useState('');
+  const [videos, setVideos] = useState([]);
+  const [playlists, setPlaylists] = useState([]);
+  const [starttimes, setStartTimes] = useState([]);
+
+  useEffect(() => {
+    
+  })
+
+  const submitSearch = () => {
+    
+    Axios.post("http://localhost:3001/search", {
+      searchResult: searchResult,
+    }).then((res) => {
+      console.log(res);
+      setVideos(res.data[0]);
+      setPlaylists(res.data[1]);
+      setStartTimes(res.data[2]);
+
+    })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Math Search Engine</h1>
+      <input type="text" name="searchinput" onChange={(e) => {
+        setSearchResult(e.target.value);
+      }}/>
+      <br></br>
+      <button type="submit" onClick={submitSearch}/>
+      {videos.map((val) => {
+        return <h1>{val}</h1>
+      })}
     </div>
   );
 }
