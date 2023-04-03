@@ -49,15 +49,15 @@ app.use(bodyParser.json());
 app.post('/search', (req, res) => {
     const searchquery = req.body.searchResult;
     darequest(searchquery).then((result) => {
-        const videos = [];
-        const playlists = [];
-        const starttimes = [];
+        const total = [];
         for (var i = 0; i < 5; i++) {
-            videos.push(result[i]['metadata']['Video']);
-            playlists.push(result[i]['metadata']['Playlist']);
-            starttimes.push(result[i]['metadata']['Start']);
+            const temp = {
+                video: result[i]['metadata']['Video'],
+                playlist: result[i]['metadata']['Playlist'],
+                start: result[i]['metadata']['Start']
+            };
+            total.push(temp);
         }
-        const total = [videos, playlists, starttimes];
         res.send(total);
         
     });

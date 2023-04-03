@@ -1,26 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Axios from 'axios';
 function App() {
 
   const [searchResult, setSearchResult] = useState('');
-  const [videos, setVideos] = useState([]);
-  const [playlists, setPlaylists] = useState([]);
-  const [starttimes, setStartTimes] = useState([]);
+  const [result, setResult] = useState([]);
 
-  useEffect(() => {
-    
-  })
+
 
   const submitSearch = () => {
     
     Axios.post("http://localhost:3001/search", {
       searchResult: searchResult,
     }).then((res) => {
-      console.log(res);
-      setVideos(res.data[0]);
-      setPlaylists(res.data[1]);
-      setStartTimes(res.data[2]);
+      
+      setResult(res['data']);
 
     })
   }
@@ -33,9 +27,9 @@ function App() {
       }}/>
       <br></br>
       <button type="submit" onClick={submitSearch}/>
-      {videos.map((val) => {
-        return <h1>{val}</h1>
-      })}
+      {result.map((val) => {
+        return <h1>Video: {val.video} | Playlist: {val.playlist} | Start: {val.start}</h1>
+      })};
     </div>
   );
 }
