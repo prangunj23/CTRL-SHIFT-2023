@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Axios from 'axios';
+import Cards from './components/Cards';
 function App() {
 
   const [searchResult, setSearchResult] = useState('');
@@ -28,7 +29,7 @@ function App() {
       <br></br>
       <button type="submit" onClick={submitSearch}/>
       {result.map((val) => {
-        return <h1>Video: {val.video} | Playlist: {val.playlist} | Start: {val.start}</h1>
+        return <Cards Video={val.video} Playlist={val.playlist} Start={val.start}/>
       })};
     </div>
   );

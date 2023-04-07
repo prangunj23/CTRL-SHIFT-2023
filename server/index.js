@@ -2,12 +2,17 @@ import { PineconeClient  } from "@pinecone-database/pinecone";
 import express, { query } from "express";
 import bodyParser from "body-parser";
 import cors from 'cors';
-
 import { Configuration, OpenAIApi } from "openai";
+import dotenv from "dotenv";
+
+dotenv.config();
 const app = express();
 
+const openaikey = process.env.OPENAIAPIKEY
+const pineconekey = process.env.PINECONEAPIKEY
+
 const configuration = new Configuration({
-    apiKey: "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"
+    apiKey: openaikey
 });
 const openai = new OpenAIApi(configuration);
 
@@ -15,7 +20,7 @@ const openai = new OpenAIApi(configuration);
 const pinecone = new PineconeClient();
 await pinecone.init({
     environment: "us-east-1-aws",
-    apiKey: "83767c83-b7d4-4329-ad26-19496aac7ec7"
+    apiKey: pineconekey
 });
 const index = pinecone.Index("mathsearchengine"); 
 
