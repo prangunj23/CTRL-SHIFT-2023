@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Axios from 'axios';
+import About from './pages/About';
+import Roadmap from './pages/Roadmap';
+import Other from './pages/Other';
+import Navbar from './components/Navbar';
 import Cards from './components/Cards';
+
 function App() {
 
   const [searchResult, setSearchResult] = useState('');
@@ -22,6 +28,14 @@ function App() {
 
   return (
     <div className="App">
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path='/roadmap' element={<Roadmap />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/other' element={<Other />} />
+        </Routes>
+      </BrowserRouter>
       <h1>Math Search Engine</h1>
       <input type="text" name="searchinput" onChange={(e) => {
         setSearchResult(e.target.value);
