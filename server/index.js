@@ -63,7 +63,6 @@ app.post('/search', (req, res) => {
             };
             total.push(temp);
         }
-        
         res.send(total);
         
     });

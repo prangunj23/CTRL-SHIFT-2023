@@ -1,17 +1,37 @@
-import React from 'react';
-//import Card from 'react-bootstrap/Card';
-
+import React, { useState } from 'react';
+import Axios from 'axios';
+import Card from 'react-bootstrap/Card';
+import './css/Card.css';
 function Cards(props) {
 
-    const imgurl = `https://img.youtube.com/vi/${props.Video}/hqdefault.jpg`
+    const [imgurl, setImgUrl] = useState('');
+    const [channelName, setChannelName] = useState('');
+    const [videoName, setVideoName] = useState('');
+
+    const url = `https://www.googleapis.com/youtube/v3/videos?id=${props.Video}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}&part=snippet`
+    
+    Axios.get(url).then((res) => {
+      setImgUrl(res['data']['items'][0]['snippet']['thumbnails']['maxres']['url']);
+      setChannelName(res['data']['items'][0]['snippet']['channelTitle']);
+      setVideoName(res['data']['items'][0]['snippet']['title']);
+    }) 
+
+    
     const youtubevideourl = `https://www.youtube.com/watch?v=${props.Video}&list=${props.Playlist}&t=${props.Start}s`    
     return (
-        <div className="card">
-        <img src={imgurl} alt="Title" className="card-img-top" />
-        <div className="card-body">
-          <a href={youtubevideourl} className="btn btn-primary">Learn more</a>
-        </div>
-      </div>
+      
+        <Card class='card' style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={imgurl}/>
+          <Card.Body>
+            <Card.Title>{channelName}</Card.Title>
+            <Card.Text>{videoName}</Card.Text>
+          </Card.Body>
+          <Card.Body>
+            <Card.Link href={youtubevideourl}>Visit</Card.Link>
+          </Card.Body>
+        </Card>
+        
+        
     );
 }
 

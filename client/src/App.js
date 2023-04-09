@@ -6,6 +6,7 @@ import Roadmap from './pages/Roadmap';
 import Other from './pages/Other';
 import Navbar from './components/Navbar';
 import Cards from './components/Cards';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
@@ -35,14 +36,13 @@ function App() {
           <Route path='/other' element={<Other />} />
         </Routes>
       </BrowserRouter>
-      <input type="text" name="searchinput" onChange={(e) => {
-        setSearchResult(e.target.value);
-      }}/>
-      <br></br>
-      <button type="submit" onClick={submitSearch}/>
+      <div style={{ display: 'flex', margin: 'auto', width: '100%', padding: '10px'}}>
       {result.map((val) => {
-        return <h1>{val.video}</h1>
+        
+          return <Cards Video={val.video} Playlist={val.playlist} Start={val.start} />
+        
       })}
+      </div>
     </div>
   );
 }

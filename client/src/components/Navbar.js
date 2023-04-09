@@ -22,7 +22,10 @@ const Navbar= (props) =>{
       <input className="search-box" type="text" placeholder="Search for a math concept..." onChange={(e) => {
         text(e.target.value);
       }}/>
-      <button className="search-button" type="submit" onClick={submitSearch}><img id="search-icon" src={require("../images/search_icon.jpeg")} alt="search-icon"/></button>
+      <button className="search-button" type="submit" onClick={(e) => {
+        e.preventDefault();
+        submitSearch();
+      }}><img id="search-icon" src={require("../images/search_icon.jpeg")} alt="search-icon"/></button>
     </form>
     <div className="nav-buttons">
       <Link className="nav-button" style={{"animation": navAnimation[0], "animationDelay": navAnimation[1], "color": navSelection === 0 ? "#d6ecef" : "white"}} onClick={() => setNavSelection(0)} to="/Roadmap">Roadmap</Link>
