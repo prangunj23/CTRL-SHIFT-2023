@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
-const Navbar= () =>{
+const Navbar= (props) =>{
   const [navSelection, setNavSelection] = useState(-1);
   const [navAnimation, setNavAnimation] = useState(["enter-from-right 1.75s cubic-bezier(0.77, 0, 0.175, 1) forwards", "0.8"]);
 
+  const { text, submitSearch } = props;
   useEffect(() => {
     setTimeout(() => {
       setNavAnimation(["none", "0"]);
@@ -18,8 +19,10 @@ const Navbar= () =>{
       <h1 className="nav-title">SiteName</h1>
     </Link>
     <form className="search-bar">
-      <input className="search-box" type="text" placeholder="Search for a math concept..."></input>
-      <button className="search-button" type="submit"><img id="search-icon" src={require("../images/search_icon.jpeg")} alt="search-icon"/></button>
+      <input className="search-box" type="text" placeholder="Search for a math concept..." onChange={(e) => {
+        text(e.target.value);
+      }}/>
+      <button className="search-button" type="submit" onClick={submitSearch}><img id="search-icon" src={require("../images/search_icon.jpeg")} alt="search-icon"/></button>
     </form>
     <div className="nav-buttons">
       <Link className="nav-button" style={{"animation": navAnimation[0], "animationDelay": navAnimation[1], "color": navSelection === 0 ? "#d6ecef" : "white"}} onClick={() => setNavSelection(0)} to="/Roadmap">Roadmap</Link>
