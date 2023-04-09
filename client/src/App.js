@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './App.css';
 import Axios from 'axios';
+import './components/css/style.css';
 import Cards from './components/Cards';
 function App() {
 
