@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
+import './pages/pages.css'
 import Axios from 'axios';
 import About from './pages/About';
 import Roadmap from './pages/Roadmap';
-import Other from './pages/Other';
+import Calculator from './pages/Calculator';
 import Navbar from './components/Navbar';
 import Cards from './components/Cards';
 
@@ -33,7 +34,7 @@ function App() {
         <Routes>
           <Route path='/roadmap' element={<Roadmap />} />
           <Route path='/about' element={<About />} />
-          <Route path='/other' element={<Other />} />
+          <Route path='/calculator' element={<Calculator />} />
         </Routes>
       </BrowserRouter>
       <h1>Math Search Engine</h1>
