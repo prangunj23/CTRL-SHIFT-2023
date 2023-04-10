@@ -11,12 +11,12 @@ const About = () => {
   const sectionScroll = () => {
       let currentScroll = document.getElementById("about-scroller").scrollTop;
       console.log(currentScroll);
-      if(currentScroll === prevScroll && currentScroll !== 943 && currentScroll !== 1678.5)
+      if(currentScroll === prevScroll && currentScroll !== 779)
         return;
       switch(currentScroll){
         case 0: setScrollValue(-1); break;
-        case 943: setScrollValue(0); break;
-        case 1886: setScrollValue(1); break;
+        case 779: setScrollValue(0); break;
+        case 1558: setScrollValue(1); break;
       }
       prevScroll = currentScroll;
   };
@@ -30,7 +30,9 @@ const About = () => {
       </div>
       <div className="about-sections" id="about-scroller" onScroll={() => sectionScroll()}>
         <section className="description-section" /*style={{"marginBottom": scrollValue === -1 ? '0' : '3vh', "opacity": scrollValue === -1 ? '1' : '0'}}*/>{aboutSectionsArray[0]}</section>
+        <section className="flex-break"></section>
         <section className="purpose-section" /*style={{"marginTop": scrollValue === -1 ? '0' : '3vh', "marginBottom": scrollValue === 1 ? '0' : '3vh', "opacity": scrollValue === 0 ? '1' : '0'}}*/>{aboutSectionsArray[1]}</section>
+        <section className="flex-break"></section>
         <section className="contact-section" /*style={{"marginTop": scrollValue === 1 ? '0' : '3vh', "opacity": scrollValue === 1 ? '1' : '0'}}*/>
         <table>
             <tr>
@@ -54,7 +56,8 @@ const About = () => {
               <td><a href='https://github.com/olutobaojo'>olutobaojo</a></td>
             </tr>
           </table>
-          This project can be found at <a href='https://github.com/prangunj23/CTRL-SHIFT-2023'>github.com/prangunj23/CTRL-SHIFT-2023</a>
+          <section className='flex-break'></section>
+          <span className="github-message">This project can be found at <a href='https://github.com/prangunj23/CTRL-SHIFT-2023'>github.com/prangunj23/CTRL-SHIFT-2023</a></span>
         </section>
       </div>
     </div>

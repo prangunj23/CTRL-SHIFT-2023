@@ -44,10 +44,10 @@
 }
 
 .about-sections{
-    flex-flow:row wrap;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-flow:row wrap !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
     height: 80vh;
@@ -76,6 +76,11 @@
     transition: all 0.8s ease;
 }
 
+.flex-break{
+    flex-basis: 100%;
+    height: 0;
+}
+
 table{
     margin: 0 auto;
 }
@@ -84,14 +89,14 @@ td, th{
     padding: 0.5rem 2.2rem;
 }
 
-td > a, section > a{
+td > a, span > a{
     display: inline-block;
     position: relative;
     color:#282c34;
-    margin-bottom: -2px;
+    margin-bottom: -14px;
 }
 
-td > a::after, section > a::after{
+td > a::after, span > a::after{
     content: '';
     position: absolute;
     width: 100%;
@@ -104,7 +109,14 @@ td > a::after, section > a::after{
     transition: transform 0.25s ease-out;
 }
 
-td > a:hover::after, section > a:hover::after{
+td > a:hover::after, span > a:hover::after{
     transform: scaleX(1);
     transform-origin: bottom left;
+}
+
+.github-message {
+    text-align: center;
+    margin: auto;
+    margin-top: 5vh;
+    display: table;
 }

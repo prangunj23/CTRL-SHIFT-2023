@@ -94,7 +94,7 @@ nav {
 
 .search-button{
   border: none;
-  height: calc(50% + 2px);
+  height: calc(50%);
   width: 15%;
   border-radius: 0 1rem 1rem 0;
   background-color: #d6ecef;
