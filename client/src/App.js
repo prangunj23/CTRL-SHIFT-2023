@@ -29,11 +29,12 @@ function App() {
     <div className="App">
       
       <BrowserRouter>
-      <Navbar text={setSearchResult} submitSearch={submitSearch}/>
+      <Navbar text={searchResult} setResult={setSearchResult}/>
         <Routes>
           <Route path='/roadmap' element={<Roadmap />} />
           <Route path='/about' element={<About />} />
           <Route path='/other' element={<Other />} />
+          <Route path='/result' element={<Result text={searchResult} />} />
         </Routes>
       </BrowserRouter>
       <div style={{ display: 'flex', margin: 'auto', width: '100%', padding: '10px'}}>

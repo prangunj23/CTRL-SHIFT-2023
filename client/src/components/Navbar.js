@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Navbar= (props) =>{
   const [navSelection, setNavSelection] = useState(-1);
   const [navAnimation, setNavAnimation] = useState(["enter-from-right 1.75s cubic-bezier(0.77, 0, 0.175, 1) forwards", "0.8"]);
 
-  const { text, submitSearch } = props;
+  const { text, setResult } = props;
   useEffect(() => {
     setTimeout(() => {
       setNavAnimation(["none", "0"]);
     }, 2000);
   }, []);
+
+  const history = useHistory();
+  const handleClick = () => {
+    const data = {result: text};
+    history.push({
+      pathname: '/result',
+      state: {data: data}
+    });
+  };
 
   return (
   <nav>
@@ -20,11 +29,11 @@ const Navbar= (props) =>{
     </Link>
     <form className="search-bar">
       <input className="search-box" type="text" placeholder="Search for a math concept..." onChange={(e) => {
-        text(e.target.value);
+        setResult(e.target.value);
       }}/>
       <button className="search-button" type="submit" onClick={(e) => {
         e.preventDefault();
-        submitSearch();
+        handleClick();
       }}><img id="search-icon" src={require("../images/search_icon.jpeg")} alt="search-icon"/></button>
     </form>
     <div className="nav-buttons">
