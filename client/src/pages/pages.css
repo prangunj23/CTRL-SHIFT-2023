@@ -88,6 +88,7 @@ td > a, section > a{
     display: inline-block;
     position: relative;
     color:#282c34;
+    margin-bottom: -2px;
 }
 
 td > a::after, section > a::after{
