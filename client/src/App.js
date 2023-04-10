@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import './pages/pages.css';
 import Axios from 'axios';
 import About from './pages/About';
 import Roadmap from './pages/Roadmap';
-import Other from './pages/Other';
+import Calculator from './pages/Calculator';
 import Navbar from './components/Navbar';
 import Cards from './components/Cards';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -35,6 +36,7 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/other' element={<Other />} />
           <Route path='/result' element={<Result text={searchResult} />} />
+          <Route path='/calculator' element={<Calculator />} />
         </Routes>
       </BrowserRouter>
       <div style={{ display: 'flex', margin: 'auto', width: '100%', padding: '10px'}}>

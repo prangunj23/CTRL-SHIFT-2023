@@ -39,8 +39,8 @@ const Navbar= (props) =>{
     <div className="nav-buttons">
       <Link className="nav-button" style={{"animation": navAnimation[0], "animationDelay": navAnimation[1], "color": navSelection === 0 ? "#d6ecef" : "white"}} onClick={() => setNavSelection(0)} to="/Roadmap">Roadmap</Link>
       <Link className="nav-button" style={{"animation": navAnimation[0], "animationDelay": navAnimation[1], "color": navSelection === 1 ? "#d6ecef" : "white"}} onClick={() => setNavSelection(1)} to="/About">About</Link>
-      <Link className="nav-button" style={{"animation": navAnimation[0], "animationDelay": navAnimation[1], "color": navSelection === 2 ? "#d6ecef" : "white"}} onClick={() => setNavSelection(2)} to="/Other">Other</Link>
-      <div className="nav-slider" style={{"margin-left": navSelection*35 + "%", "opacity": navSelection < 0 ? "0" : "1"}}> </div>
+      <Link className="nav-button" style={{"animation": navAnimation[0], "animationDelay": navAnimation[1], "color": navSelection === 2 ? "#d6ecef" : "white"}} onClick={() => setNavSelection(2)} to="/Calculator">Calculator</Link>
+      <div className="nav-slider" style={{"marginLeft": navSelection*35 + "%", "opacity": navSelection < 0 ? "0" : "1"}}> </div>
     </div>
   </nav>
   );
