@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar= (props) =>{
   const [navSelection, setNavSelection] = useState(-1);
@@ -12,13 +12,9 @@ const Navbar= (props) =>{
     }, 2000);
   }, []);
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const handleClick = () => {
-    const data = {result: text};
-    history.push({
-      pathname: '/result',
-      state: {data: data}
-    });
+    navigate('/result', {state: { query: text}});
   };
 
   return (
@@ -34,6 +30,7 @@ const Navbar= (props) =>{
       <button className="search-button" type="submit" onClick={(e) => {
         e.preventDefault();
         handleClick();
+        
       }}><img id="search-icon" src={require("../images/search_icon.jpeg")} alt="search-icon"/></button>
     </form>
     <div className="nav-buttons">
