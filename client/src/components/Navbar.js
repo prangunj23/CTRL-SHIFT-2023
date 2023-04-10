@@ -16,7 +16,7 @@ const Navbar= (props) =>{
   <nav>
     <Link className="home-clickables" style={{ textDecoration: 'none' }} onClick={() => setNavSelection(-1)} to="/">
       <img className="nav-logo" src={require("../images/icyblue_logo_temp.png")} alt="logo" />
-      <h1 className="nav-title">SiteName</h1>
+      <h1 className="nav-title">Numerify</h1>
     </Link>
     <form className="search-bar">
       <input className="search-box" type="text" placeholder="Search for a math concept..." onChange={(e) => {

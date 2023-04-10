@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Cards from './components/Cards';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import './components/css/roadmap.css';
 
 function App() {
 
