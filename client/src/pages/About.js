@@ -15,8 +15,8 @@ const About = () => {
         return;
       switch(currentScroll){
         case 0: setScrollValue(-1); break;
-        case 725: setScrollValue(0); break;
-        case 1449.5: setScrollValue(1); break;
+        case 779: setScrollValue(0); break;
+        case 1558: setScrollValue(1); break;
       }
       prevScroll = currentScroll;
   };
