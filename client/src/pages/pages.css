@@ -12,6 +12,72 @@
     animation: fade-up 0.8s ease forwards;
 }
 
+.results-page{
+    animation: fade-up 0.8s ease forwards;
+}
+
+.search-error{
+    color: red;
+    font-family: Karla, sans-serif;
+    width: 60%;
+    font-size: 1.8rem;
+    padding-top: 20vh;
+}
+
+.home-page{
+    margin-top: 25vh;
+    font-family: Karla, sans-serif;
+    color: #282c34;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-flow:row wrap;
+    animation: fade-up 0.8s ease forwards;
+}
+
+.home-heading{
+    font-size: 3rem;
+    width: 100%;
+    /*overflow: hidden; /* Ensures the content is not revealed until the animation 
+    border-right: .15em solid #61dafb; /* The typwriter cursor 
+    white-space: nowrap; /* Keeps the content on a single line 
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens 
+    letter-spacing: .08em; /* Adjust as needed */
+    /*animation: 
+    typing 2s steps(35, end),
+    flash-cursor .75s step-end infinite;*/
+}
+
+@keyframes typing {
+    from {width: 0}
+    to {width: 100%}
+}  
+
+@keyframes flash-cursor {
+    from, to { border-color: transparent }
+    50% { border-color: #61dafb; }
+}
+
+.home-subheading{
+    width: 80%;
+    padding-top: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-up 1s ease forwards;
+    animation-delay: 2s;
+}
+
+.home-github-message{
+    text-align: center;
+    margin: auto;
+    margin-top: 5vh;
+    display: table;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-up 1s ease forwards;
+    animation-delay: 2s;
+}
+
 @keyframes fade-up {
     from{
         opacity: 0;
@@ -44,15 +110,7 @@
     transition: all 0.4s ease;
 }
 
-@keyframes typing {
-    from {width: 0}
-    to {width: 100%}
-}  
 
-@keyframes flash-cursor {
-    from, to { border-color: transparent }
-    50% { border-color: #61dafb; }
-}
 
 .about-sections{
     flex-flow:row wrap !important;
@@ -100,14 +158,14 @@ td, th{
     padding: 0.5rem 2.2rem;
 }
 
-td > a, span > a{
+td > a, span > a, h3 > a{
     display: inline-block;
     position: relative;
     color:#282c34;
     margin-bottom: -14px;
 }
 
-td > a::after, span > a::after{
+td > a::after, span > a::after, h3 > a::after{
     content: '';
     position: absolute;
     width: 100%;
@@ -120,7 +178,7 @@ td > a::after, span > a::after{
     transition: transform 0.25s ease-out;
 }
 
-td > a:hover::after, span > a:hover::after{
+td > a:hover::after, span > a:hover::after, h3 > a:hover::after{
     transform: scaleX(1);
     transform-origin: bottom left;
 }
@@ -189,4 +247,13 @@ td > a:hover::after, span > a:hover::after{
     font-family: Karla, sans-serif;
     width: 100%;
     padding: 5%;
+}
+
+.calculator-error{
+    color: red;
+    visibility: hidden;
+    font-family: Karla, sans-serif;
+    width: 60%;
+    font-size: 1.2rem;
+    padding-top: 3%;
 }

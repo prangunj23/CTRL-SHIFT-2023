@@ -14,12 +14,13 @@ const Navbar= (props) =>{
 
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate('/result', {state: { query: text}});
+    navigate('/Result', {state: { query: text}});
   };
+
 
   return (
   <nav>
-    <Link className="home-clickables" style={{ textDecoration: 'none' }} onClick={() => setNavSelection(-1)} to="/">
+    <Link className="home-clickables" style={{ textDecoration: 'none' }} onClick={() => setNavSelection(-1)} to="/Home">
       <img className="nav-logo" src={require("../images/icyblue_logo_temp.png")} alt="logo" />
       <h1 className="nav-title">Numerify</h1>
     </Link>
@@ -30,7 +31,6 @@ const Navbar= (props) =>{
       <button className="search-button" type="submit" onClick={(e) => {
         e.preventDefault();
         handleClick();
-        
       }}><img id="search-icon" src={require("../images/search_icon.jpeg")} alt="search-icon"/></button>
     </form>
     <div className="nav-buttons">
