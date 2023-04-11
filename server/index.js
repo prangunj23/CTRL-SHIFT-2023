@@ -18,10 +18,14 @@ const openai = new OpenAIApi(configuration);
 
 
 const pinecone = new PineconeClient();
+pinecone.projectName = "numerify";
 await pinecone.init({
     environment: "us-east-1-aws",
-    apiKey: pineconekey
-});
+    apiKey: pineconekey,
+}); 
+
+
+
 const index = pinecone.Index("mathsearchengine"); 
 
 async function darequest(thestring) {
@@ -51,7 +55,16 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.post('/search', (req, res) => {
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'https://fastidious-piroshki-956d78.netlify.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+  });
+  
+
+app.post('/search/', (req, res) => {
     const searchquery = req.body.searchResult;
     darequest(searchquery).then((result) => {
         const total = [];
@@ -71,9 +84,9 @@ app.post('/search', (req, res) => {
 });
 
 
-
-app.listen(3001, () => {
-    console.log("running on port 3001");
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+    console.log(`running on port ${port}`);
     
 });
 

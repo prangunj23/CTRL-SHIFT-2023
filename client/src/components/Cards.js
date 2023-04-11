@@ -8,7 +8,7 @@ function Cards(props) {
     const [channelName, setChannelName] = useState('');
     const [videoName, setVideoName] = useState('');
 
-    const url = `https://www.googleapis.com/youtube/v3/videos?id=${props.Video}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}&part=snippet`
+    const url = `https://www.googleapis.com/youtube/v3/videos?id=${props.Video}&key=AIzaSyD8QMnKWOe9nEPr7XkEGxjM8ANo3oZX4_c&part=snippet`
     
     Axios.get(url).then((res) => {
       setImgUrl(res['data']['items'][0]['snippet']['thumbnails']['maxres']['url']);
