@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Redirect } from "react-router-dom";
 import './pages/pages.css';
 import About from './pages/About';
 import Roadmap from './pages/Roadmap';
@@ -21,6 +21,7 @@ function App() {
       <BrowserRouter>
       <Navbar text={searchResult} setResult={setSearchResult}/>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path='/home' element={<Home />} />
           <Route path='/roadmap' element={<Roadmap />} />
           <Route path='/about' element={<About />} />
