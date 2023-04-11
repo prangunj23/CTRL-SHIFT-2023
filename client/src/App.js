@@ -6,6 +6,7 @@ import Roadmap from './pages/Roadmap';
 import Calculator from './pages/Calculator';
 import Navbar from './components/Navbar';
 import Result from './pages/Result';
+import Home from './pages/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './components/css/roadmap.css';
@@ -20,6 +21,7 @@ function App() {
       <BrowserRouter>
       <Navbar text={searchResult} setResult={setSearchResult}/>
         <Routes>
+          <Route path='/home' element={<Home />} />
           <Route path='/roadmap' element={<Roadmap />} />
           <Route path='/about' element={<About />} />
           <Route path='/result' element={<Result text={searchResult} />} />

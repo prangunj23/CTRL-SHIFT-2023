@@ -4,6 +4,7 @@ import './pages.css';
 function Calculator() {
   const [calcOutput, setCalcOutput] = useState("");
   const [newEquation, setNewEquation] = useState(false);
+  const [errorVisibility, setErrorVisibility] = useState("hidden");
   const [operation, setOperation] = useState("");
   const [currentSum,setCurrentSum]=useState(0);
   const [clear,setClear]=useState(false);
@@ -52,6 +53,8 @@ function Calculator() {
     if(char === '' || newEquation){
       setCalcOutput(char);
       setNewEquation(false);
+      if(char === '')
+        setErrorVisibility("hidden");
     } else {
       setCalcOutput(calcOutput + char);
     }
@@ -81,9 +84,13 @@ function Calculator() {
     console.log(secondVal);
     console.log(answerString);
     console.log(calcOutput);*/
-    if(['/', '*', '+', '-', ''].includes(calcOutput.charAt(calcOutput.length - 1)))
-      return;
-    setCalcOutput(eval(calcOutput));
+    try{
+      setCalcOutput(eval(calcOutput));
+      setErrorVisibility("hidden");
+    }catch(e){
+      setErrorVisibility("visible");
+      setCalcOutput("");
+    }
     setNewEquation(true);
   }
 
@@ -115,6 +122,8 @@ function Calculator() {
           <input type = "button" value = "+" onClick={() => updateOutput('+')} />   
         </form>
       </div>
+      <section className="flex-break"></section>
+      <h6 className="calculator-error" style={{"visibility": errorVisibility}}>Error calculating; please ensure that each number is separated by only one operator with no operator at the beginning or end of the expression and omit unnecessary zeros</h6>
     </div>
   );
 }
