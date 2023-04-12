@@ -118,7 +118,7 @@
     align-items: center !important;
     justify-content: center !important;
     overflow-y: auto;
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
     height: 80vh;
     min-width: 200vw !important;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
