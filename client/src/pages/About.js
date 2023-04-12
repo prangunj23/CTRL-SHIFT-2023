@@ -9,8 +9,8 @@ const About = () => {
   let prevScroll = 0;
 
   const sectionScroll = () => {
-      let currentScroll = document.getElementById("about-scroller").scrollTop / window.innerHeight;
-      //console.log(currentScroll / window.innerHeight);
+      let currentScroll = document.getElementById("about-scroller").scrollTop / window.outerHeight;
+      console.log(currentScroll);
       if(currentScroll === prevScroll)
         return;
       switch(currentScroll){
