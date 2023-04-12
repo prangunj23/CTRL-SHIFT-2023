@@ -9,15 +9,22 @@ const About = () => {
   let prevScroll = 0;
 
   const sectionScroll = () => {
-      let currentScroll = document.getElementById("about-scroller").scrollTop / window.innerHeight;
+      let currentScroll = (document.getElementById("about-scroller").scrollTop / window.innerHeight) * 100;
       console.log(currentScroll);
       if(currentScroll === prevScroll)
         return;
-      switch(currentScroll){
+      if(currentScroll === 0)
+        setScrollValue(-1);
+      else if(85 <= currentScroll && currentScroll <= 105)
+        setScrollValue(0);
+      else if(180 <= currentScroll && currentScroll <= 200)
+        setScrollValue(1);
+      /*switch(currentScroll){
         case 0: setScrollValue(-1); break;
         case 0.95: setScrollValue(0); break;
         case 1.9: setScrollValue(1); break;
-      }
+      }*/
+      console.log(scrollValue);
       prevScroll = currentScroll;
   };
 

@@ -13,7 +13,7 @@ const aboutSectionsArray = [
     "tough problems less intimidating, and instead inspire people to improve their problem solving skills. By providing " +
     "the specific time stamp of the concept being searched within a video, we hope to save users the time of clicking " +
     "through videos and trying to find the exact point they need to see. From technology to finance to medicine to just "+
-    "about everything else, math is key skill. Hopefully, by using our site, you can learn to embrace it and learn "+
+    "about everything else, math is a key skill. Hopefully, by using our site, you can learn to embrace it and learn "+
     "something new everyday!"
 ]
 
